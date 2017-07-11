@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>VAST 2017 Mini Challenge 3 Visualization Analysis System</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Select CSS -->
+    <link href="css/bootstrap-select.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+<nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+        <li class="sidebar-brand">
+            <a href="index.html" onclick=$("#menu-close").click();>VAST2017 MC3</a>
+        </li>
+        <li>
+            <a href="index.html" onclick=$("#menu-close").click();>Home</a>
+        </li>
+        <li>
+            <a href="index.html#about" onclick=$("#menu-close").click();>About</a>
+        </li>
+        <li>
+            <a href="index.html#services" onclick=$("#menu-close").click();>Team</a>
+        </li>
+        <li>
+            <a href="index.html#portfolio" onclick=$("#menu-close").click();>Summer School</a>
+        </li>
+        <li>
+            <a href="index.html#contact" onclick=$("#menu-close").click();>Contact</a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Header -->
+<header id="top" class="header">
+    <div class="text-vertical-center">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-3">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#rgb" aria-controls="rgb" role="tab" data-toggle="tab">RGB Image</a></li>
+                    <li role="presentation"><a href="#single" aria-controls="profile" role="tab" data-toggle="tab">Single Channel</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="rgb" align="left">
+                        <br>
+                        <div>
+                            R:
+                            <select id="select_r" class="selectpicker">
+                                <option>b1</option>
+                                <option>b2</option>
+                                <option>b3</option>
+                                <option>b4</option>
+                                <option>b5</option>
+                                <option>b6</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div>
+                            G:
+                            <select id="select_g" class="selectpicker">
+                                <option>b1</option>
+                                <option>b2</option>
+                                <option>b3</option>
+                                <option>b4</option>
+                                <option>b5</option>
+                                <option>b6</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div>
+                            B:
+                            <select id="select_b" class="selectpicker">
+                                <option>b1</option>
+                                <option>b2</option>
+                                <option>b3</option>
+                                <option>b4</option>
+                                <option>b5</option>
+                                <option>b6</option>
+                            </select>
+                        </div>
+                        <br>
+                        <button id="btn_rgb" type="button" class="btn btn-primary" onclick="btnRgbOnclicked()">Generate Image</button>
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="single" align="left">
+                        <br>
+                        <div>
+                            Chanel:
+                            <select id="select_single" class="selectpicker">
+                                <option>b1</option>
+                                <option>b2</option>
+                                <option>b3</option>
+                                <option>b4</option>
+                                <option>b5</option>
+                                <option>b6</option>
+                                <option>dnvi</option>
+                            </select>
+                        </div>
+                        <br>
+                        <button id="btn_single" type="button" class="btn btn-primary " onclick="btnSingleOnclicked()">Generate Image</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h3 id="img_info"></h3>
+                <img id="vis_image" src="img/Result/2014_03_17/b1b2b3.jpg" class="img-thumbnail">
+
+                <div class="btn-group" id="filterDay" data-toggle="buttons" onclick="btnRadioOnclicked()">
+                    <label class="btn btn-default active">
+                        <input type="radio" class="toggle" value="0" checked> 2014_03_17
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" class="toggle" value="1"> 2014_08_24
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" class="toggle" value="2"> 2014_11_28
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" class="toggle" value="3"> 2014_12_30
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" class="toggle" value="4"> 2015_02_15
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" class="toggle" value="5"> 2015_06_24
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" class="toggle" value="6"> 2015_09_12
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" class="toggle" value="7"> 2015_11_15
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" class="toggle" value="8"> 2016_03_06
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" class="toggle" value="9"> 2016_06_26
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" class="toggle" value="10"> 2016_09_06
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" class="toggle" value="11"> 2016_12_19
+                    </label>
+                </div>
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</header>
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap-select.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function (e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    // Scrolls to the selected menu item on the page
+    $(function () {
+        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    //#to-top button appears after scrolling
+    var fixed = false;
+    $(document).scroll(function () {
+        if ($(this).scrollTop() > 250) {
+            if (!fixed) {
+                fixed = true;
+                // $('#to-top').css({position:'fixed', display:'block'});
+                $('#to-top').show("slow", function () {
+                    $('#to-top').css({
+                        position: 'fixed',
+                        display: 'block'
+                    });
+                });
+            }
+        } else {
+            if (fixed) {
+                fixed = false;
+                $('#to-top').hide("slow", function () {
+                    $('#to-top').css({
+                        display: 'none'
+                    });
+                });
+            }
+        }
+    });
+    // Disable Google Maps scrolling
+    // See http://stackoverflow.com/a/25904582/1607849
+    // Disable scroll zooming and bind back the click event
+    var onMapMouseleaveHandler = function (event) {
+        var that = $(this);
+        that.on('click', onMapClickHandler);
+        that.off('mouseleave', onMapMouseleaveHandler);
+        that.find('iframe').css("pointer-events", "none");
+    }
+    var onMapClickHandler = function (event) {
+        var that = $(this);
+        // Disable the click handler until the user leaves the map area
+        that.off('click', onMapClickHandler);
+        // Enable scrolling zoom
+        that.find('iframe').css("pointer-events", "auto");
+        // Handle the mouse leave event
+        that.on('mouseleave', onMapMouseleaveHandler);
+    }
+    // Enable map zooming with mouse scroll when the user clicks the map
+    $('.map').on('click', onMapClickHandler);
+</script>
+
+<!-- Custom Functions-->
+<script>
+    var isRGB = true;
+    var filename_list = ['2014_03_17','2014_08_24','2014_11_28','2014_12_30',
+        '2015_02_15', '2015_06_24','2015_09_12','2015_11_15',
+        '2016_03_06', '2016_06_26','2016_09_06','2016_12_19'];
+    var path_prefix = 'img/Result/';
+    var info = filename_list[0] +": R(b1), G(b2), B(b3)";
+    $('#img_info').text(info);
+
+    function btnRgbOnclicked() {
+        isRGB = true;
+        var R = $('#select_r option:selected').val();
+        var G = $('#select_g option:selected').val();
+        var B= $('#select_b option:selected').val();
+        var selectedDateIndex = $('#filterDay label.active input').val();
+        var filepath = path_prefix + filename_list[selectedDateIndex] +"/"+R+G+B+".jpg";
+        document.getElementById('vis_image').src = filepath;
+
+        var info = filename_list[selectedDateIndex] +": R("+R+"), G("+G+"), B("+B+")";
+        $('#img_info').text(info);
+    }
+
+    function btnSingleOnclicked() {
+        isRGB = false;
+        var channel = $('#select_single option:selected').val();
+        var selectedDateIndex = $('#filterDay label.active input').val();
+        var filepath = path_prefix + filename_list[selectedDateIndex]+"/"+channel+".jpg";
+        document.getElementById('vis_image').src = filepath;
+
+        var info = filename_list[selectedDateIndex] +": Channel("+channel+")";
+        $('#img_info').text(info);
+    }
+
+
+    function btnRadioOnclicked() {
+        if(isRGB){
+            var R = $('#select_r option:selected').val();
+            var G = $('#select_g option:selected').val();
+            var B= $('#select_b option:selected').val();
+            var selectedDateIndex = $('#filterDay label.active input').val();
+            var filepath = path_prefix + filename_list[selectedDateIndex] +"/"+R+G+B+".jpg";
+            document.getElementById('vis_image').src = filepath;
+
+            var info = filename_list[selectedDateIndex] +": R("+R+"), G("+G+"), B("+B+")";
+            $('#img_info').text(info);
+        }else{
+            var channel = $('#select_single option:selected').val();
+            var selectedDateIndex = $('#filterDay label.active input').val();
+            var filepath = path_prefix + filename_list[selectedDateIndex]+"/"+channel+".jpg";
+            document.getElementById('vis_image').src = filepath;
+
+            var info = filename_list[selectedDateIndex] +": Channel("+channel+")";
+            $('#img_info').text(info);
+        }
+    }
+</script>
+</body>
+
+</html>
